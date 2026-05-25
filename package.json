@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "db:migrate": "tsx src/db/migrate.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -11,6 +14,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@types/pg": "^8.20.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint": "^9.0.0",
@@ -18,5 +22,13 @@
     "eslint-plugin-import-x": "^4.0.0",
     "typescript": "^5.8.0",
     "typescript-eslint": "^8.0.0"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.0.4",
+    "hono": "^4.12.23",
+    "kysely": "^0.29.2",
+    "pg": "^8.21.0",
+    "tsx": "^4.22.3",
+    "zod": "^4.4.3"
   }
 }

@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: task-track-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tasktrack
+      POSTGRES_USER: tasktrack
+      POSTGRES_PASSWORD: tasktrack
+    ports:
+      - "5432:5432"
+    volumes:
+      - task-track-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tasktrack -d tasktrack"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  task-track-postgres-data:
